@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/menu_infogeneral"
+            android:icon="@drawable/ic_general"
+            android:title="Información General"/>
+        <item
+            android:id="@+id/menu_lenguaje"
+            android:icon="@drawable/ic_languaje"
+            android:title="Lenguage: Search by ISO 639-1 languaje "/>
+    </group>
+</menu>
