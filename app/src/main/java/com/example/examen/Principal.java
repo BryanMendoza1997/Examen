@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
+import android.widget.Toast;
+
 import com.example.examen.Adaptadores.MyAdapter;
 import com.example.examen.WebServices.Asynchtask;
 import com.example.examen.WebServices.WebService;
@@ -43,7 +45,12 @@ public class Principal extends AppCompatActivity implements Asynchtask {
                     banco.getString("name"),
                     "http://www.geognos.com/api/en/countries/flag/"+banco.getString("alpha2Code").toString()+".png"));
         }
-        MyAdapter adapter=new MyAdapter(Principal.this,products);
+        MyAdapter adapter=new MyAdapter(Principal.this, products, new MyAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(String name, int position) {
+                Toast.makeText(Principal.this, name+" - " +position, Toast.LENGTH_LONG).show();
+            }
+        });
         mRecyclerView.setAdapter(adapter);
     }
 }

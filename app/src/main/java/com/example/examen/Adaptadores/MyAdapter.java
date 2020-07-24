@@ -24,10 +24,12 @@ import java.util.List;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     private List<Datos> codigos;
     private Context Ctx;
-    public MyAdapter( Context cont,List<Datos> names)
+    private OnItemClickListener listener;
+    public MyAdapter( Context cont,List<Datos> names, OnItemClickListener listener)
     {
         this.codigos=names;
         this.Ctx=cont;
+        this.listener=listener;
     }
     @NonNull
     @Override
@@ -39,8 +41,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Datos pro=codigos.get(position);
 
+        Datos pro=codigos.get(position);
+        holder.bind(pro.getNombre(),listener);
       Glide.with(Ctx)
               .load(pro.getImagen())
               .into(holder.imagen);
@@ -63,6 +66,18 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
             this.descripcion=(TextView) itemView.findViewById(R.id.txtnombre);
             this.imagen=(ImageView) itemView.findViewById(R.id.imageView);
         }
+        public void bind(final String name, final OnItemClickListener listener){
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onItemClick(name,getAdapterPosition());
+                }
+            });
+        }
+
+    }
+    public  interface OnItemClickListener{
+        void onItemClick(String name, int position);
 
     }
 
