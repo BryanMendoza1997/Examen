@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="350dp"
+    android:layout_height="325dp"
     android:background="#E2E2E2">
 
     <androidx.cardview.widget.CardView
@@ -16,18 +16,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <TextView
-                android:id="@+id/txtnombre"
-                android:layout_width="346dp"
-                android:layout_height="40dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="35dp"
-                android:layout_marginBottom="13dp"
-                android:text="TextView"
-                android:textSize="20dp" />
-
             <ImageView
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
@@ -39,6 +27,18 @@
                 android:layout_marginTop="1dp"
                 android:adjustViewBounds="true"
                 app:srcCompat="@drawable/ic_general" />
+
+            <TextView
+                android:id="@+id/txtnombre"
+                android:layout_width="346dp"
+                android:layout_height="40dp"
+                android:layout_below="@+id/imageView"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="11dp"
+                android:text="TextView"
+                android:textSize="20dp" />
+
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>

@@ -35,13 +35,13 @@ public class Principal extends AppCompatActivity implements Asynchtask {
     }
 
     public void processFinish(String result) throws JSONException {
+        String imag;
         JSONArray JSONlista =  new JSONArray(result);
         for(int i=0; i< JSONlista.length();i++){
             JSONObject banco=  JSONlista.getJSONObject(i);
             products.add( new Datos(
                     banco.getString("name"),
-                    banco.getString("flag")
-            ));
+                    "http://www.geognos.com/api/en/countries/flag/"+banco.getString("alpha2Code").toString()+".png"));
         }
         MyAdapter adapter=new MyAdapter(Principal.this,products);
         mRecyclerView.setAdapter(adapter);
