@@ -10,6 +10,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.examen.R;
 import com.example.examen.clases.Datos;
 
@@ -39,9 +40,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
                 .load(pro.getImagen())
                 .into(holder.imagen);
 
-        holder.name.setText(pro.getNombre());
-        holder.descripcion.setText(pro.getDescripcion());
-        holder.precio.setText(String.valueOf(pro.getPrecio()));
+        holder.descripcion.setText(pro.getNombre());
     }
 
     @Override
@@ -50,16 +49,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     }
 
     class ViewHolder extends RecyclerView.ViewHolder{
-        TextView name;
         TextView descripcion;
-        TextView precio;
         ImageView imagen;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            this.name=(TextView) itemView.findViewById(R.id.txtnombre);
-            this.descripcion=(TextView) itemView.findViewById(R.id.txtdescripcion);
-            this.precio=(TextView) itemView.findViewById(R.id.txtprecio);
+            this.descripcion=(TextView) itemView.findViewById(R.id.txtnombre);
             this.imagen=(ImageView) itemView.findViewById(R.id.imageView);
         }
 
