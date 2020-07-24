@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.examen.R;
 import com.example.examen.clases.Datos;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -35,10 +36,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Datos pro=codigos.get(position);
-
-        Glide.with(Ctx)
-                .load(pro.getImagen())
-                .into(holder.imagen);
+        Picasso.get().load(pro.getImagen()).into(holder.imagen);
+      //  Glide.with(Ctx)
+                //.load(pro.getImagen())
+             //   .into(holder.imagen);
 
         holder.descripcion.setText(pro.getNombre());
     }
