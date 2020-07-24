@@ -3,6 +3,8 @@ package com.example.examen;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -48,7 +50,9 @@ public class Principal extends AppCompatActivity implements Asynchtask {
         MyAdapter adapter=new MyAdapter(Principal.this, products, new MyAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(String name, int position) {
-                Toast.makeText(Principal.this, name+" - " +position, Toast.LENGTH_LONG).show();
+                Intent segundo=new Intent(Principal.this,MainActivity.class);
+                segundo.putExtra("Pais" , name);
+                startActivity(segundo);
             }
         });
         mRecyclerView.setAdapter(adapter);
