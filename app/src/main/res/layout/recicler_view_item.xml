@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="400dp"
+    android:layout_height="350dp"
     android:background="#E2E2E2">
 
     <androidx.cardview.widget.CardView
@@ -19,22 +19,25 @@
 
             <TextView
                 android:id="@+id/txtnombre"
-                android:layout_width="192dp"
+                android:layout_width="346dp"
                 android:layout_height="40dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginStart="16dp"
-                android:layout_marginBottom="54dp"
-                android:text="TextView" />
+                android:layout_marginStart="35dp"
+                android:layout_marginBottom="13dp"
+                android:text="TextView"
+                android:textSize="20dp" />
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="250dp"
-                android:layout_height="285dp"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:layout_gravity="center_horizontal"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="1dp"
                 android:layout_marginTop="1dp"
+                android:adjustViewBounds="true"
                 app:srcCompat="@drawable/ic_general" />
 
         </RelativeLayout>

@@ -36,10 +36,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Datos pro=codigos.get(position);
-        Picasso.get().load(pro.getImagen()).into(holder.imagen);
-      //  Glide.with(Ctx)
-                //.load(pro.getImagen())
-             //   .into(holder.imagen);
+       // Picasso.get().load(pro.getImagen()).into(holder.imagen);
+       Glide.with(Ctx)
+                .load(pro.getImagen())
+               .into(holder.imagen);
 
         holder.descripcion.setText(pro.getNombre());
     }
