@@ -18,10 +18,13 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
+    Bundle args = new Bundle();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        String Pais=getIntent().getStringExtra("Pais");
+        args.putString("Pais", Pais);
         drawerLayout=(DrawerLayout)findViewById(R.id.drawer_layout);
         navigationView=(NavigationView)findViewById(R.id.nav_view);
         setToolbar();
@@ -36,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     case R.id.menu_infogeneral:
                         fragment= new general();
+                        fragment.setArguments(args);
                         Transaccion=true;
                         break;
                     case R.id.menu_lenguaje:
@@ -54,7 +58,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     public void setFragmetDefault(){
-        cambiarfradmento(new general(),navigationView.getMenu().findItem(R.id.menu_infogeneral));
+        // Supongamos que tu Fragment se llama TestFragment. Colocamos este nuevo Bundle como argumento en el fragmento.
+        general newFragment = new general();
+        newFragment.setArguments(args);
+        cambiarfradmento(newFragment,navigationView.getMenu().findItem(R.id.menu_infogeneral));
     }
     public void cambiarfradmento(Fragment fragment,MenuItem item){
         getSupportFragmentManager().beginTransaction().replace(R.id.content_frame,fragment).commit();

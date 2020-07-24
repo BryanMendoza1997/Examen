@@ -7,15 +7,23 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.TextView;
 
+import com.example.examen.Principal;
 import com.example.examen.R;
+import com.example.examen.WebServices.Asynchtask;
+import com.example.examen.WebServices.WebService;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link general#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class general extends Fragment {
+public class general extends Fragment  {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -56,13 +64,15 @@ public class general extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
+    TextView text;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View vista=inflater.inflate(R.layout.fragment_general, container, false);
-
+        String texto = getArguments().getString("Pais");
+        text = (TextView) vista.findViewById(R.id.txtpais);
+        text.setText(texto);
         return vista ;
     }
 }
